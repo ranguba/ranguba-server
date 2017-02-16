@@ -1,0 +1,14 @@
+table_create entries TABLE_HASH_KEY ShortText
+column_create entries title COLUMN_SCALAR ShortText
+column_create entries body COLUMN_SCALAR|COMPRESS_ZSTD LongText
+column_create entries size COLUMN_SCALAR UInt64
+
+table_create terms TABLE_PAT_KEY ShortText \
+  --default_tokenizer TokenBigram \
+  --normalizer NormalizerAuto
+column_create terms entries_title \
+  COLUMN_INDEX|WITH_POSITION \
+  entries title
+column_create terms entries_body \
+  COLUMN_INDEX|WITH_POSITION \
+  entries body
