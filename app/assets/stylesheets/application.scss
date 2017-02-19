@@ -14,12 +14,14 @@
 
 @import "bootstrap";
 
-nav.header {
-  @extend .navbar;
-  @extend .navbar-toggleable-md;
+header {
+  nav {
+    @extend .navbar;
+    @extend .navbar-toggleable-md;
 
-  a.home {
-    @extend .navbar-brand;
+    a.home {
+      @extend .navbar-brand;
+    }
   }
 }
 
