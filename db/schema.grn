@@ -1,4 +1,8 @@
+table_create mime_types TABLE_PAT_KEY ShortText --normalizer NormalizerAuto
+column_create mime_types label ShortText
+
 table_create entries TABLE_HASH_KEY ShortText
+column_create entries mime_type COLUMN_SCALAR mime_types
 column_create entries title COLUMN_SCALAR ShortText
 column_create entries body COLUMN_SCALAR|COMPRESS_ZSTD LongText
 column_create entries size COLUMN_SCALAR UInt64
