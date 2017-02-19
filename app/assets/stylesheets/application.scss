@@ -22,6 +22,18 @@ header {
     a.home {
       @extend .navbar-brand;
     }
+
+    ul {
+      @extend .navbar-nav;
+
+      li {
+        @extend .nav-item;
+
+        a {
+          @extend .nav-link;
+        }
+      }
+    }
   }
 }
 
