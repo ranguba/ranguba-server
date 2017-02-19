@@ -1,3 +1,22 @@
+PATH
+  remote: ../chupa-text-decomposer-html
+  specs:
+    chupa-text-decomposer-html (1.0.2)
+      chupa-text
+      nokogiri
+
+PATH
+  remote: ../chupa-text-decomposer-mail
+  specs:
+    chupa-text-decomposer-mail (1.0.0)
+      chupa-text
+      mail
+
+PATH
+  remote: ../chupa-text
+  specs:
+    chupa-text (1.0.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -209,6 +228,9 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  chupa-text!
+  chupa-text-decomposer-html!
+  chupa-text-decomposer-mail!
   coffee-rails (~> 4.2)
   factory_girl_rails
   groonga-client-model

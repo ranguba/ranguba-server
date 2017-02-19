@@ -51,3 +51,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'groonga-client-model'
+gem 'chupa-text', path: '../chupa-text'
+gem 'chupa-text-decomposer-html', path: '../chupa-text-decomposer-html'
+gem 'chupa-text-decomposer-mail', path: '../chupa-text-decomposer-mail'
