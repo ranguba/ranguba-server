@@ -11,9 +11,11 @@ class Scraping
     @entry = Entry.new
     extractor = ChupaText::Extractor.new
     extractor.apply_configuration(ChupaText::Configuration.default)
-    data = ChupaText::TextData.new(body)
+    data = ChupaText::Data.new
     data.uri = uri
     data.mime_type = mime_type
+    data.body = body
+    data.size = body.bytesize
     texts = []
     extractor.extract(data) do |extracted_data|
       texts << extracted_data.body
