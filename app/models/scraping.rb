@@ -19,7 +19,9 @@ class Scraping
     texts = []
     size = 0
     extractor.extract(data) do |extracted_data|
-      text = extracted_data.body
+      text = extracted_data.body.encode(Encoding::UTF_8,
+                                        :invalid => :replace,
+                                        :undef => :replace)
       texts << text
       size += text.bytesize
     end
