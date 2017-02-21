@@ -39,6 +39,47 @@ header {
 
 div.content {
   @extend .container;
+
+  section.entries {
+    @extend .list-group;
+
+    section.entry {
+      @extend .list-group-item;
+      @extend .list-group-item-action;
+
+      h2 {
+        @extend .list-group-item-heading;
+
+        a {
+        }
+
+        p.url {
+          @extend .text-muted;
+        }
+      }
+
+      pre {
+        @extend .container;
+      }
+    }
+  }
+
+  div.entry-detail {
+    @extend .card;
+
+    section.entry-attributes {
+      @extend .card-block;
+
+      h2 {
+        @extend .card-title;
+      }
+
+      p,
+      pre {
+        @extend .card-text;
+      }
+    }
+  }
 }
 
 #notice {

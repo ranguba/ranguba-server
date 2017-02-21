@@ -4,7 +4,7 @@ column_create mime_types label ShortText
 table_create entries TABLE_HASH_KEY ShortText
 column_create entries mime_type COLUMN_SCALAR mime_types
 column_create entries title COLUMN_SCALAR ShortText
-column_create entries body COLUMN_SCALAR|COMPRESS_ZSTD LongText
+column_create entries texts COLUMN_VECTOR LongText
 column_create entries size COLUMN_SCALAR UInt64
 
 table_create terms TABLE_PAT_KEY ShortText \
@@ -13,6 +13,6 @@ table_create terms TABLE_PAT_KEY ShortText \
 column_create terms entries_title \
   COLUMN_INDEX|WITH_POSITION \
   entries title
-column_create terms entries_body \
+column_create terms entries_texts \
   COLUMN_INDEX|WITH_POSITION \
-  entries body
+  entries texts

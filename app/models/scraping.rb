@@ -17,13 +17,17 @@ class Scraping
     data.body = body
     data.size = body.bytesize
     texts = []
+    size = 0
     extractor.extract(data) do |extracted_data|
-      texts << extracted_data.body
+      text = extracted_data.body
+      texts << text
+      size += text.bytesize
     end
     @entry._key = data.uri.to_s
+    @entry.title = data[:title] || data[:subject] || @entry._key
     @entry.mime_type = data.mime_type
-    @entry.body = texts.join("\n")
-    @entry.size = @entry.body.bytesize
+    @entry.texts = texts
+    @entry.size = size
     @entry.save
   end
 end

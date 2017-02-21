@@ -1,24 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Key:</strong>
-  <%= @entry._key %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @entry.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @entry.body %>
-</p>
-
-<p>
-  <strong>Size:</strong>
-  <%= @entry.size %>
-</p>
-
-<%= link_to 'Edit', edit_entry_path(@entry) %> |
-<%= link_to 'Back', entries_path %>
+<div class="entry-detail">
+  <section class="entry-attributes">
+    <h1><%= @entry.title %></h1>
+    <p><%= @entry._key %></p>
+    <% @entry.texts.each do |text| %>
+    <pre><%= text %></pre>
+    <% end %>
+  </div>
+</section>
