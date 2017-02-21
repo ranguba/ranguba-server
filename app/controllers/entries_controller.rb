@@ -4,7 +4,14 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @request = Entry.all.
+    @query = params[:query]
+    @request = Entry.select.
+      query(@query).
+      output_columns([
+                       "_key",
+                       "*",
+                       "highlight_html(texts[0])",
+                     ]).
       paginate(params[:page], per_page: params[:per_page])
   end
 

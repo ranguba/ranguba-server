@@ -40,8 +40,30 @@ header {
 div.content {
   @extend .container;
 
+  span.keyword {
+    @extend .bg-info;
+    @extend .text-white;
+  }
+
   section.entries {
     @extend .list-group;
+
+    form {
+      @extend .form-inline;
+
+      div {
+        @extend .input-group;
+
+        input[type="text"] {
+          @extend .form-control;
+        }
+
+        input[type="submit"] {
+          @extend .btn;
+          @extend .btn-primary;
+        }
+      }
+    }
 
     section.entry {
       @extend .list-group-item;

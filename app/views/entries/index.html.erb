@@ -1,18 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<div class="page-info">
-  <%= page_entries_info(@request.response) %>
-</div>
-
 <section class="entries">
   <h1>Entries</h1>
 
-  <% @request.response.entries.each do |entry| %>
+  <%= form_tag(entries_path,
+               method: :get) do %>
+    <div>
+      <%= text_field_tag("query", @query) %>
+      <%= submit_tag("Search") %>
+    </div>
+  <% end %>
+
+  <div class="page-info">
+    <%= page_entries_info(@request.response) %>
+  </div>
+
+  <% @request.response.records.each do |entry| %>
   <section class="entry">
     <h2><%= link_to(entry.title, entry) %></h2>
     <p class="url"><%= entry._key %></p>
-    <% entry.texts.each do |text| %>
-    <pre><%= text %></pre>
+    <% if entry.highlight_html.present? %>
+      <pre><%= entry.highlight_html.html_safe %></pre>
+    <% else %>
+      <% entry.texts.each do |text| %>
+      <pre><%= text %></pre>
+      <% end %>
     <% end %>
   </section>
   <% end %>
