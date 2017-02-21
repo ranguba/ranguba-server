@@ -54,6 +54,7 @@ gem 'groonga-client-model'
 gem 'chupa-text', path: '../chupa-text'
 gem 'chupa-text-decomposer-html', path: '../chupa-text-decomposer-html'
 gem 'chupa-text-decomposer-mail', path: '../chupa-text-decomposer-mail'
+gem 'kaminari'
 
 gem 'bootstrap'
 source 'https://rails-assets.org' do

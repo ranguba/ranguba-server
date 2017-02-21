@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<div class="page-info">
+  <%= page_entries_info(@request.response) %>
+</div>
+
 <section class="entries">
   <h1>Entries</h1>
 
-  <% @entries.each do |entry| %>
+  <% @request.response.entries.each do |entry| %>
   <section class="entry">
     <h2><%= link_to(entry.title, entry) %></h2>
     <p class="url"><%= entry._key %></p>
@@ -13,3 +17,5 @@
   </section>
   <% end %>
 </section>
+
+<%= paginate(@request.response) %>
