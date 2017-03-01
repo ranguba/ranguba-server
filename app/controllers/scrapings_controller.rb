@@ -9,8 +9,9 @@ class ScrapingsController < ApplicationApiController
         format.html { redirect_to @entry, notice: 'Scraped successfully.' }
         format.json { render "entries/show", status: :created, location: @entry }
       else
+        @entry = @scraping.entry
         format.html { render :new }
-        format.json { render json: @scraping.errors, status: :unprocessable_entity }
+        format.json { render json: @entry.errors, status: :unprocessable_entity }
       end
     end
   end
